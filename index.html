@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        background-color: #eeeeee;
+    }
+
+    .banner {
+        height: auto;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+        justify-content: space-between;
+        z-index: 1; /* Ensure banner is above other content */
+    }
+
+    .banner-content {
+        margin-left: 50px;
+    }
+
+    .banner h1 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .banner p {
+        font-size: 12px;
+        color: #9a9a9a;
+    }
+
+    .about-button {
+        margin-left: 40px;
+        padding: 10px 40px;
+    }
+
+    .file-select {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .file-select p {
+        font-size: 15px;
+        text-align: left;
+        margin: 0;
+    }
+
+    .file-select label {
+        margin: 10px 0;
+    }
+
+    .gif-container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        border: 1px solid #dddddd;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .gif-container img {
+        max-width: 100%;
+        max-height: 100%;
+        image-rendering: pixelated; /* Ensure pixel-perfect rendering */
+    }
+
+    .gif-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gif-wrapper p {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .gif-resolution {
+        font-size: 12px;
+        color: #9a9a9a;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    #file1 {
+        display: none;
+    }
+
+    label, .about-button {
+        display: inline-block;
+        outline: 0;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        border-radius: 4px;
+        font-size: 13px;
+        height: 30px;
+        background-color: #9147ff;
+        color: white;
+        padding: 0 20px;
+        line-height: 30px;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    label:hover, .about-button:hover {
+        background-color: #772ce8;
+    }
+
+    .main-content {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        flex-grow: 1;
+        margin-top: 50px;
+        box-sizing: border-box;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        width: calc(100% - 200px);
+        max-width: 1200px;
+        padding: 0 100px;
+        box-sizing: border-box;
+    }
+
+    .left-column, .right-column {
+        width: 48%;
+    }
+
+    .left-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .right-column {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media (min-resolution: 192dpi) {
+        #myImage {
+            transform: scale(0.5);
+        }
+    }
+
+    .logo {
+        width: 125px;
+        height: 52px;
+    }
+
+    .footer {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        background-color: white;
+        position: fixed;
+        bottom: 0;
+    }
+
+    .footer-text {
+        font-size: 11px;
+        font-family: Arial, sans-serif;
+        color: #9a9a9a;
+    }
+</style>
+</head>
+<body>
+    <div class="banner">
+        <div style="display: flex; align-items: center;">
+            <img src="T&P_2024_Primary_Logo_Black.png" alt="Logo" class="logo">
+            <div class="banner-content">
+                <h1>Pixel Perfect<br />Image Viewer v0.42</h1>
+                <p>The webpage application enables users to view .gif, .png, .jpg and .jpeg images in their original sizes without compromising quality or experiencing scaling issues. If you require assistance, please do not hesitate to contact your T&Pm producer. <b>It is worth noting that this is a simple HTML file that does not require an active internet connection.</b></p>
+                <p><b>Please be advised that this application is currently undergoing testing and may contain bugs. It is crucial that the application is NOT sent to the client until it has been approved.<b/></p>
+            </div>
+        </div>
+        <a href="about.html" class="about-button">About App</a>
+    </div>
+    <div class="main-content">
+        <div class="container">
+            <div class="left-column">
+                <div class="file-select">
+                    <p>Select an image to display <p>(.gif, .png, .jpg, .jpeg)</p></p>
+                    <input type="file" id="file1" accept=".gif, .jpeg, .jpg, .png" onchange="displayImage()">
+                    <label for="file1" id="fileLabel">File browser</label>
+                    <p id="fileName"></p>
+                </div>
+            </div>
+            <div class="right-column">
+                <div id="gifs"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p class="footer-text">Code name: Jack DoubleU's Bankable BrowserVision 4K | CC BY-SA 4.0 | Jack Ward | Made with &hearts; at T&amp;Pm</p>
+    </div>
+    <script>
+        function displayFileName() {
+            const fileInput = document.getElementById('file1');
+            const fileNameP = document.getElementById('fileName');
+            const file = fileInput.files[0];
+            if (file) {
+                fileNameP.textContent = file.name;
+            } else {
+                fileNameP.textContent = '';
+            }
+        }
+
+        function displayImage() {
+            const fileInput = document.getElementById('file1');
+            const gifsDiv = document.getElementById('gifs');
+            const file = fileInput.files[0];
+            const fileLabel = document.getElementById('fileLabel');
+            
+            if (file && (file.type === 'image/gif' || file.type === 'image/jpeg' || file.type === 'image/jpg' || file.type === 'image/png')) {
+                // Create an invisible image element to get the image's dimensions
+                const tempImg = document.createElement('img');
+                tempImg.src = URL.createObjectURL(file);
+                tempImg.style.display = 'none';
+                document.body.appendChild(tempImg);
+                tempImg.addEventListener('load', function() {
+                    // Get the image's dimensions
+                    const width = this.width;
+                    const height = this.height;
+                    // Remove the temporary image element
+                    document.body.removeChild(tempImg);
+                    // Display the image in a container with the same dimensions
+                    gifsDiv.innerHTML = `
+                        <div class="gif-wrapper">
+                            <p>${file.name}</p>
+                            <p class="gif-resolution">${width} x ${height}</p>
+                            <div class="gif-container" style="width: ${width}px; height: ${height}px;">
+                                <img id="myImage" src="${URL.createObjectURL(file)}" style="width: ${width}px; height: ${height}px;">
+                            </div>
+                        </div>
+                    `;
+                    // Change the label to 'Select new'
+                    fileLabel.textContent = 'Select new';
+                    fileLabel.onclick = clearImage;
+                });
+                displayFileName();
+            }
+        }
+
+        function clearImage() {
+            const fileInput = document.getElementById('file1');
+            const gifsDiv = document.getElementById('gifs');
+            const fileLabel = document.getElementById('fileLabel');
+            const fileNameP = document.getElementById('fileName');
+
+            // Clear the displayed image and file name
+            gifsDiv.innerHTML = '';
+            fileNameP.textContent = '';
+            // Change the label back to 'File browser'
+            fileLabel.textContent = 'File browser';
+            fileLabel.onclick = null;
+        }
+    </script>
+</body>
+</html>
