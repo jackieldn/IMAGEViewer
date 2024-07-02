@@ -3,219 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Viewer v0.50</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background-color: #E9ECEF;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .bg-shape {
-            width: 520px;
-            height: 520px;
-            border-radius: 9999px;
-            z-index: -1;
-            position: absolute;
-            filter: blur(100px);
-        }
-
-        .bg-teal {
-            background-color: #CAF0F8;
-            top: -100px;
-            left: -100px;
-        }
-
-        .bg-primary {
-            background-color: #CAF0F8;
-            bottom: -100px;
-            right: -100px;
-        }
-
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #00B4D8;
-            padding: 12px 20px;
-            border-radius: 10px;
-            margin: 20px; /* You can change this to */
-            margin-bottom: 5px;  /* Reduce the bottom margin */
-        }
-
-        .logo img {
-            width: 85px;
-            height: 35px;
-        }
-
-        .title {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .about-btn {
-            background-color: #03045E;
-            color: #fff;
-            border: none;
-            border-radius: 15px;
-            padding: 10px 20px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .about-btn:hover {
-            background-color: #1D3557;
-        }
-
-        .welcome {
-            background-color: #ffffff;
-            padding: 20px;
-            margin: 20px;
-            margin-top: 5px;  /* Reduce the top margin */
-            border-radius: 10px;        
-        }
-
-        .welcome p {
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-
-        .welcome strong {
-            font-weight: bold;
-        }
-
-        .reminder {
-            background-color: #ffffff;
-            border-style: solid;
-            border-color: #00B4D8;
-            border-width: 1px;
-            padding: 20px;
-            margin: 20px;
-            border-radius: 10px;        
-        }
-
-        .reminder p {
-            margin-bottom: 15px;
-            color: #005262;
-            font-size: 14px;
-            padding: 2px;
-            margin: 1px;
-        }
-
-        .reminder strong {
-            font-weight: bold;
-        }
-
-        .content {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px;
-            gap: 15px;
-        }
-
-        .file-browser {
-            background-color: #ffffff;
-            border-radius: 10px;
-            padding: 20px;
-            width: 25%;
-            text-align: center;
-        }
-
-        .image-display {
-            background-color: #ffffff;
-            border-radius: 10px;
-            padding: 20px;
-            width: 75%;
-            text-align: center;
-        }
-
-        .file-browser p {
-            margin-bottom: 20px;
-        }
-
-        .file-btn {
-            background-color: #03045E;
-            color: #fff;
-            border: none;
-            border-radius: 15px;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-
-        .file-btn:hover {
-            background-color: #1D3557;
-        }
-
-        .gif-container {
-            background-color: #ffffff;
-            padding: 10px;
-            border-radius: 10px;
-            border: 1px solid #dddddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-sizing: border-box;
-        }
-
-        .gif-container img {
-            object-fit: contain;
-        }
-
-        .gif-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .gif-wrapper p {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .gif-resolution {
-            font-size: 12px;
-            color: #9a9a9a;
-            text-align: center;
-            margin-top: 5px;
-        }
-
-        #file1 {
-            display: none;
-        }
-
-        #fileName {
-            margin-top: 25px;
-        }
-    </style>
+    <title>Image Viewer v0.52</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="bg-shape bg-teal"></div>
     <div class="bg-shape bg-primary"></div>
     <header>
         <div class="logo"><img src="T&P_2024_Primary_Logo_Black.png" alt="T&P Logo"></div>
-        <div class="title">IMAGE Viewer v0.51</div>
+        <div class="title">IMAGE Viewer v0.52</div>
         <a href="about.html" class="about-btn">About</a>
     </header>
     <section class="reminder">
         <p><strong>Reminder</strong></p>
         <p><strong>This is a simple HTML application that does not require an active internet connection. Files are being displayed locally and not sent to servers.</strong></p>
     </section>
-    <section class="welcome">
-        <p><strong>Welcome</strong></p>
-        <p>The webpage application enables users to view .gif, .png, .jpg and .jpeg images in their original sizes without compromising quality or experiencing scaling issues. If you require assistance, please do not hesitate to contact your T&Pm producer or the developer, Jack Ward at &NatWest Team.</p>
-        <p>Please be advised that this application is currently undergoing testing and may contain bugs. <strong>It is crucial that the application is NOT sent to the client until it has been approved.</strong></p>
-    </section>
     <section class="content">
         <div class="file-browser">
-            <p>Select an image to display (.gif, .png, .jpg, .jpeg)</p>
+            <p><b>Select an image to display</b><br>(.gif, .png, .jpg, .jpeg)<br/></p>
             <input type="file" id="file1" accept=".gif, .jpeg, .jpg, .png" onchange="displayImage()">
             <label for="file1" id="fileLabel" class="file-btn">File browser</label>
             <p id="fileName"></p>
