@@ -8,7 +8,6 @@
 body {
     background-color: #E9ECEF;
     position: relative;
-    overflow: hidden;
 }
 
 .bg-shape {
@@ -39,8 +38,8 @@ header {
     background-color: #00B4D8;
     padding: 12px 20px;
     border-radius: 10px;
-    margin: 20px; /* You can change this to */
-    margin-bottom: 5px;  /* Reduce the bottom margin */
+    margin: 20px;
+    margin-bottom: 5px;
 }
 
 .logo img {
@@ -67,22 +66,6 @@ header {
     background-color: #1D3557;
 }
 
-.welcome {
-    background-color: #ffffff;
-    padding: 20px;
-    margin: 20px;
-    margin-top: 5px;  /* Reduce the top margin */
-    border-radius: 10px;        
-}
-
-.welcome p {
-    margin-bottom: 15px;
-    font-size: 14px;
-}
-
-.welcome strong {
-    font-weight: bold;
-}
 .about {
     background-color: #ffffff;
     padding: 20px;
@@ -107,7 +90,7 @@ header {
     border-width: 1px;
     padding: 20px;
     margin: 20px;
-    border-radius: 10px;        
+    border-radius: 10px;
 }
 
 .reminder p {
@@ -120,6 +103,10 @@ header {
 
 .reminder strong {
     font-weight: bold;
+}
+
+.reminder-title {
+    font-size: 16px;
 }
 
 .content {
@@ -135,6 +122,12 @@ header {
     padding: 20px;
     width: 25%;
     text-align: center;
+    border: 2px dashed #aaa;
+    transition: background-color 0.3s;
+}
+
+.file-browser.dragover {
+    background-color: #f0f0f0;
 }
 
 .image-display {
@@ -202,4 +195,8 @@ header {
 
 #fileName {
     margin-top: 25px;
+}
+
+.reduced-line-height {
+    line-height: 1.2; /* Adjust this value as needed */
 }
