@@ -13,17 +13,41 @@
         }
 
         body {
-            background-color: #f5f5f5;
+            background-color: #E9ECEF;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-shape {
+            width: 520px;
+            height: 520px;
+            border-radius: 9999px;
+            z-index: -1;
+            position: absolute;
+            filter: blur(100px);
+        }
+
+        .bg-teal {
+            background-color: #CAF0F8;
+            top: -100px;
+            left: -100px;
+        }
+
+        .bg-primary {
+            background-color: #CAF0F8;
+            bottom: -100px;
+            right: -100px;
         }
 
         header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #A8DADC;
-            padding: 10px 20px;
+            background-color: #00B4D8;
+            padding: 12px 20px;
             border-radius: 10px;
-            margin: 20px;
+            margin: 20px; /* You can change this to */
+            margin-bottom: 5px;  /* Reduce the bottom margin */
         }
 
         .logo img {
@@ -37,7 +61,7 @@
         }
 
         .about-btn {
-            background-color: #457B9D;
+            background-color: #03045E;
             color: #fff;
             border: none;
             border-radius: 15px;
@@ -50,19 +74,42 @@
             background-color: #1D3557;
         }
 
-        .note {
-            background-color: #f8f8f8;
+        .welcome {
+            background-color: #ffffff;
             padding: 20px;
             margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 5px;  /* Reduce the top margin */
+            border-radius: 10px;        
         }
 
-        .note p {
-            margin-bottom: 10px;
+        .welcome p {
+            margin-bottom: 15px;
+            font-size: 14px;
         }
 
-        .note strong {
+        .welcome strong {
+            font-weight: bold;
+        }
+
+        .reminder {
+            background-color: #ffffff;
+            border-style: solid;
+            border-color: #00B4D8;
+            border-width: 1px;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;        
+        }
+
+        .reminder p {
+            margin-bottom: 15px;
+            color: #005262;
+            font-size: 14px;
+            padding: 2px;
+            margin: 1px;
+        }
+
+        .reminder strong {
             font-weight: bold;
         }
 
@@ -70,21 +117,20 @@
             display: flex;
             justify-content: space-around;
             margin: 20px;
+            gap: 15px;
         }
 
         .file-browser {
-            background-color: #f8f8f8;
+            background-color: #ffffff;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             width: 25%;
             text-align: center;
         }
 
         .image-display {
-            background-color: #f8f8f8;
+            background-color: #ffffff;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             width: 75%;
             text-align: center;
@@ -95,7 +141,7 @@
         }
 
         .file-btn {
-            background-color: #457B9D;
+            background-color: #03045E;
             color: #fff;
             border: none;
             border-radius: 15px;
@@ -108,7 +154,7 @@
         }
 
         .gif-container {
-            background-color: white;
+            background-color: #ffffff;
             padding: 10px;
             border-radius: 10px;
             border: 1px solid #dddddd;
@@ -119,8 +165,6 @@
         }
 
         .gif-container img {
-            max-width: 100%;
-            max-height: 100%;
             object-fit: contain;
         }
 
@@ -153,14 +197,20 @@
     </style>
 </head>
 <body>
+    <div class="bg-shape bg-teal"></div>
+    <div class="bg-shape bg-primary"></div>
     <header>
         <div class="logo"><img src="T&P_2024_Primary_Logo_Black.png" alt="T&P Logo"></div>
-        <div class="title">IMAGE Viewer v0.50a</div>
+        <div class="title">IMAGE Viewer v0.51</div>
         <a href="about.html" class="about-btn">About</a>
     </header>
-    <section class="note">
-        <p><strong>Please note</strong></p>
-        <p>The webpage application enables users to view .gif, .png, .jpg and .jpeg images in their original sizes without compromising quality or experiencing scaling issues. If you require assistance, please do not hesitate to contact your T&Pm producer. <strong>It is worth noting that this is a simple HTML file that does not require an active internet connection.</strong></p>
+    <section class="reminder">
+        <p><strong>Reminder</strong></p>
+        <p><strong>This is a simple HTML application that does not require an active internet connection. Files are being displayed locally and not sent to servers.</strong></p>
+    </section>
+    <section class="welcome">
+        <p><strong>Welcome</strong></p>
+        <p>The webpage application enables users to view .gif, .png, .jpg and .jpeg images in their original sizes without compromising quality or experiencing scaling issues. If you require assistance, please do not hesitate to contact your T&Pm producer or the developer, Jack Ward at &NatWest Team.</p>
         <p>Please be advised that this application is currently undergoing testing and may contain bugs. <strong>It is crucial that the application is NOT sent to the client until it has been approved.</strong></p>
     </section>
     <section class="content">
@@ -207,7 +257,7 @@
                             <p>${file.name}</p>
                             <p class="gif-resolution">${width} x ${height}</p>
                             <div class="gif-container" style="width: ${width / scale}px; height: ${height / scale}px;">
-                                <img id="myImage" src="${URL.createObjectURL(file)}">
+                                <img id="myImage" src="${URL.createObjectURL(file)}" width="${width / scale}" height="${height / scale}">
                             </div>
                         </div>
                     `;
@@ -232,4 +282,3 @@
     </script>
 </body>
 </html>
-
