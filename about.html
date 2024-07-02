@@ -1,142 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-    html, body {
-        height: 100%;
-        margin: 0;
-        font-family: Arial, sans-serif;
-        display: flex;
-        flex-direction: column;
-        background-color: #eeeeee;
-    }
-
-    .banner {
-        height: auto;
-        background-color: white;
-        display: flex;
-        align-items: center;
-        padding: 20px;
-        width: 100%;
-        box-sizing: border-box;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-        justify-content: space-between;
-        z-index: 1; /* Ensure banner is above other content */
-    }
-
-    .banner-content {
-        margin-left: 25px;
-    }
-
-    .banner h1 {
-        font-size: 20px;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    .banner p {
-        font-size: 12px;
-        color: #9a9a9a;
-    }
-
-    .about-button {
-        margin-left: 20px;
-        padding: 5px 10px;
-    }
-
-    label, .about-button {
-        display: inline-block;
-        outline: 0;
-        border: none;
-        cursor: pointer;
-        font-weight: 600;
-        border-radius: 4px;
-        font-size: 13px;
-        height: 30px;
-        background-color: #9147ff;
-        color: white;
-        padding: 0 20px;
-        line-height: 30px;
-        text-align: center;
-        text-decoration: none;
-    }
-
-    label:hover, .about-button:hover {
-        background-color: #772ce8;
-    }
-
-    .main-content {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        flex-grow: 1;
-        margin-top: 50px;
-        box-sizing: border-box;
-    }
-
-    .content-container {
-        width: calc(100% - 200px);
-        max-width: 1200px;
-        padding: 0 100px;
-        box-sizing: border-box;
-    }
-
-    .content-title {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    .content-body {
-        font-size: 14px;
-        color: #333;
-        line-height: 1.6;
-        text-align: justify;
-    }
-
-    .logo {
-        width: 125px;
-        height: 52px;
-    }
-
-    .footer {
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-        background-color: white;
-        position: fixed;
-        bottom: 0;
-    }
-
-    .footer-text {
-        font-size: 11px;
-        font-family: Arial, sans-serif;
-        color: #9a9a9a;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Viewer v0.52</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="banner">
-        <div style="display: flex; align-items: center;">
-            <img src="T&P_2024_Primary_Logo_Black.png" alt="Logo" class="logo">
-            <div class="banner-content">
-                <h1>IMAGE Viewer v0.51</h1>
-            </div>
-        </div>
-        <a href="index.html" class="about-button">Home</a>
-    </div>
-    <div class="main-content">
-        <div class="content-container">
-            <div class="content-title">About This Offline HTML Application</div>
-            <div class="content-body">
-                <p>This webpage application was developed by the T&Pm | &NatWest Team to ensure that GIFs, PNGs, JPGs and JPEGs are displayed accurately on all types of monitors and resolutions, without any loss of quality or scaling issues. The application guarantees (well... at least tries) pixel-perfect display of supported images.</p>
-                <p>Kindly note that this offline/local HTML site is currently undergoing active testing and development, which may result in some issues. We kindly request that you refrain from sharing it with the Client until further notice. At present, the site is intended for internal use only.</p>
-            </div>
-        </div>
-    </div>
-    <div class="footer">
-        <p class="footer-text">Code name: Jack DoubleU's Bankable BrowserVision 4K | CC BY-SA 4.0 | Jack Ward | Made with &hearts; at T&amp;Pm</p>
-    </div>
+    <div class="bg-shape bg-teal"></div>
+    <div class="bg-shape bg-primary"></div>
+    <header>
+        <div class="logo"><img src="T&P_2024_Primary_Logo_Black.png" alt="T&P Logo"></div>
+        <div class="title">IMAGE Viewer v0.52</div>
+        <a href="index.html" class="about-btn">Home</a>
+    </header>
+    <section class="about">
+        <p><strong>About</strong></p>
+        <p>The webpage application enables users to view .gif, .png, .jpg and .jpeg images in their original sizes without compromising quality or experiencing scaling issues. If you require assistance, please do not hesitate to contact your T&Pm producer or the developer, Jack Ward at &NatWest Team.</p>
+        <p>Please be advised that this application is currently undergoing testing and may contain bugs. <strong>It is crucial that the application is NOT sent to the client until it has been approved.</strong></p>
+    </section>
+    <section class="about">
+        <p><strong>Development</strong></p>
+        <p>The source code of this webpage application is available publicly on GitHub. You can also download the package and use it offline. <a href="https://github.com/jackieldn/IMAGEViewer.github.io">IMAGE Viewer GitHub page</a></p>
+        <p>Official website is available <a href="https://jackieldn.github.io/IMAGEViewer.github.io/">here</a></strong>.</p>
+    </section>
+    <section class="about">
+        <p><strong>Version History</strong></p>
+        <p>Latest release: Montrose v0.52 Stable</a></p>
+    </section>
 </body>
 </html>
