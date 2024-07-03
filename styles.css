@@ -166,7 +166,7 @@ header {
     box-sizing: border-box;
 }
 
-.gif-container img {
+.gif-container img, .gif-container video {
     object-fit: contain;
 }
 
@@ -199,4 +199,17 @@ header {
 
 .reduced-line-height {
     line-height: 1.2; /* Adjust this value as needed */
+}
+#playPauseBtn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #035e32;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#playPauseBtn:hover {
+    background-color: #048949;
 }

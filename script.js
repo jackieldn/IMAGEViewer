@@ -10,28 +10,55 @@ function displayFileName(file) {
 function displayImage(file) {
     const gifsDiv = document.getElementById('gifs');
     const fileLabel = document.getElementById('fileLabel');
-    if (file && (file.type === 'image/gif' || file.type === 'image/jpeg' || file.type === 'image/jpg' || file.type === 'image/png')) {
-        const tempImg = document.createElement('img');
-        tempImg.src = URL.createObjectURL(file);
-        tempImg.style.display = 'none';
-        document.body.appendChild(tempImg);
-        tempImg.addEventListener('load', function() {
-            const width = this.width;
-            const height = this.height;
+    const fileType = file.type;
+
+    if (fileType.startsWith('image/') || fileType === 'video/mp4') {
+        const element = document.createElement(fileType.startsWith('image/') ? 'img' : 'video');
+        element.src = URL.createObjectURL(file);
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.addEventListener('loadedmetadata', function () {
+            const width = this.videoWidth || this.width;
+            const height = this.videoHeight || this.height;
             const scale = window.devicePixelRatio || 1;
-            document.body.removeChild(tempImg);
+            document.body.removeChild(element);
+
             gifsDiv.innerHTML = `
                 <div class="gif-wrapper">
                     <p>${file.name}</p>
                     <p class="gif-resolution">${width} x ${height}</p>
                     <div class="gif-container" style="width: ${width / scale}px; height: ${height / scale}px;">
-                        <img id="myImage" src="${URL.createObjectURL(file)}" width="${width / scale}" height="${height / scale}">
+                        <${fileType.startsWith('image/') ? 'img' : 'video'} id="mediaElement" src="${URL.createObjectURL(file)}" width="${width / scale}" height="${height / scale}"></${fileType.startsWith('image/') ? 'img' : 'video'}>
                     </div>
+                    ${fileType === 'video/mp4' ? '<button id="playPauseBtn">Play</button>' : ''}
                 </div>
             `;
             fileLabel.textContent = 'Select new';
             fileLabel.onclick = clearImage;
+
+            if (fileType === 'video/mp4') {
+                const videoElement = document.getElementById('mediaElement');
+                const playPauseBtn = document.getElementById('playPauseBtn');
+
+                playPauseBtn.addEventListener('click', () => {
+                    if (videoElement.paused) {
+                        videoElement.play();
+                        playPauseBtn.textContent = 'Pause';
+                    } else {
+                        videoElement.pause();
+                        playPauseBtn.textContent = 'Play';
+                    }
+                });
+            }
         });
+
+        if (fileType === 'image/jpeg' || fileType === 'image/jpg' || fileType === 'image/png' || fileType === 'image/gif') {
+            element.addEventListener('load', function () {
+                this.dispatchEvent(new Event('loadedmetadata'));
+            });
+        }
+
         displayFileName(file);
     }
 }
