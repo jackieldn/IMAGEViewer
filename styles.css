@@ -16,7 +16,7 @@ body {
     border-radius: 9999px;
     z-index: -1;
     position: absolute;
-    filter: blur(100px);
+    filter: blur(200px);
 }
 
 .bg-teal {
@@ -42,6 +42,16 @@ header {
     margin-bottom: 5px;
 }
 
+.right-header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust the gap as needed */
+}
+
+.dark-mode-btn {
+    margin-left: 10px; /* Optional: add space between About button and lightbulb */
+}
+
 .logo img {
     width: 200px;
     height: 50px;
@@ -64,6 +74,17 @@ header {
 
 .about-btn:hover {
     background-color: #1D3557;
+}
+
+.dark-mode-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.dark-mode-btn:focus {
+    outline: none;
 }
 
 .about {
@@ -155,6 +176,15 @@ header {
     background-color: #1D3557;
 }
 
+.file-btn.dark-mode {
+    background-color: #5fa58c;
+    color: #001721; /* Font colour */
+}
+
+.file-btn.dark-mode:hover {
+    background-color: #7acaae;
+}
+
 .gif-container {
     background-color: #ffffff;
     padding: 10px;
@@ -200,16 +230,53 @@ header {
 .reduced-line-height {
     line-height: 1.2; /* Adjust this value as needed */
 }
+
 #playPauseBtn {
     margin-top: 10px;
     padding: 10px 20px;
     background-color: #035e32;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
 #playPauseBtn:hover {
     background-color: #048949;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #00090c;
+    color: #bad1da; /* Font colour */
+}
+
+header.dark-mode {
+    background-color: #016074;
+}
+
+.about-btn.dark-mode {
+    background-color: #5fa58c;
+    color: #001721; /* Font colour */
+}
+
+.about-btn.dark-mode:hover {
+    background-color: #7acaae;
+}
+
+.file-browser.dark-mode, .image-display.dark-mode, .about.dark-mode, .reminder.dark-mode {
+    background-color: #00080c; /* Box background colours */
+    color: #bad1da; /* Font colour */
+    border-color: #002d44; /* Box border colour */
+}
+body.dark-mode .bg-teal {
+    background-color: #004e6f; /* Change this to your preferred color */
+}
+
+body.dark-mode .bg-primary {
+    background-color: #004e6f; /* Change this to your preferred color */
+}
+
+.reminder.dark-mode p {
+    color: #bad1da;
 }

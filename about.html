@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Viewer v0.61</title>
+    <title>Media Viewer v0.62</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,12 +11,17 @@
     <div class="bg-shape bg-primary"></div>
     <header>
         <div class="logo"><img src="T&P_2024_Primary_Logo_Black.png" alt="T&P Logo"></div>
-        <div class="title">MEDIA Viewer v0.61</div>
-        <a href="index.html" class="about-btn">Home</a>
-    </header>
+        <div class="title">MEDIA Viewer v0.62</div>
+        <div class="right-header-buttons">
+            <a href="index.html" class="about-btn">Home</a>
+            <button id="darkModeToggle" class="dark-mode-btn" title="Toggle dark mode">
+                💡
+            </button>
+        </div>
+    </header>    
     <section class="about">
         <p><strong><h2>About</h2></strong></p>
-        <p>The webpage application enables users to view .gif, .png, .jpg and .jpeg images in their original sizes without compromising quality or experiencing scaling issues. If you require assistance, please do not hesitate to contact your T&Pm producer or the developer, Jack Ward at &NatWest Team.</p>
+        <p>The webpage application enables users to view .mp4, .gif, .png, .jpg and .jpeg images in their original sizes without compromising quality or experiencing scaling issues. If you require assistance, please do not hesitate to contact your T&Pm producer or the developer, Jack Ward at &NatWest Team.</p>
         <p>Please be advised that this application is currently undergoing testing and may contain bugs. <strong>It is crucial that the application is NOT sent to the client until it has been approved.</strong></p>
     </section>
     <section class="about">
@@ -27,7 +32,9 @@
     <section class="about">
         <p class="reduced-line-height">
         <p><strong><h2>Version History</h2></strong></p><br>
-        <p><h3>Latest release: Stonehaven v0.61</h3></p>
+        <p><h3>Latest release: Stonehaven v0.62</h3></p>
+        <p>Super-sexy dark mode added. SSL (https) protocol was set up.</p><br>
+        <p><strong>Stonehaven v0.61</strong></p>
         <p>Now accepts and displays .mp4 files. Therefore, the name shall be MEDIA Viewer. What a milestone.</p><br>
         <p><strong>Stonehaven v0.6</strong></p>
         <p>Drag and Drop functionality added, updated About page with Version History section. Additional bug fixes.</p><br>
@@ -46,5 +53,6 @@
         <p><strong>NatWest GIF Viewer (optimised for 4K displays) v0.01 [Unreleased Test]</strong></p>
         <p>Displaying .mp4 files.</p><br>
     </section>
+    <script src="script.js"></script>
 </body>
 </html>

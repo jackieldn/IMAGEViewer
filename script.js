@@ -89,9 +89,30 @@ function clearImage() {
     fileLabel.onclick = null;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const fileDropZone = document.getElementById('fileDropZone');
-    fileDropZone.addEventListener('dragover', handleDragOver, false);
-    fileDropZone.addEventListener('drop', handleFileSelect, false);
-    document.getElementById('file1').addEventListener('change', handleFileSelect, false);
-});
+function setDarkMode(isDark) {
+    const elementsToToggle = document.querySelectorAll('body, header, .about-btn, .file-browser, .image-display, .about, .reminder, #fileLabel');
+    elementsToToggle.forEach(element => {
+        if (isDark) {
+            element.classList.add('dark-mode');
+        } else {
+            element.classList.remove('dark-mode');
+        }
+    });
+}
+
+function handleDarkModeToggle() {
+    const isDarkMode = document.body.classList.toggle('dark-mode');
+    setDarkMode(isDarkMode);
+    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+}
+
+const darkModeToggle = document.getElementById('darkModeToggle');
+darkModeToggle.addEventListener('click', handleDarkModeToggle);
+
+// Apply the saved theme or system preference
+const savedDarkMode = localStorage.getItem('darkMode');
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+if (savedDarkMode === 'enabled' || (!savedDarkMode && prefersDarkScheme)) {
+    document.body.classList.add('dark-mode');
+}
+setDarkMode(document.body.classList.contains('dark-mode'));
