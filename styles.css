@@ -48,10 +48,6 @@ header {
     gap: 10px; /* Adjust the gap as needed */
 }
 
-.dark-mode-btn {
-    margin-left: 10px; /* Optional: add space between About button and lightbulb */
-}
-
 .logo img {
     width: 200px;
     height: 50px;
@@ -74,17 +70,6 @@ header {
 
 .about-btn:hover {
     background-color: #1D3557;
-}
-
-.dark-mode-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.dark-mode-btn:focus {
-    outline: none;
 }
 
 .about {
@@ -128,6 +113,20 @@ header {
 
 .reminder-title {
     font-size: 16px;
+}
+
+.announcement {
+    font-size: 16px;
+    color: #024b28;
+}
+.announcement-box {
+    background-color: #97d6b8;
+    border-style: solid;
+    border-color: #48bc84;
+    border-width: 1px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
 }
 
 .content {
@@ -174,15 +173,6 @@ header {
 
 .file-btn:hover {
     background-color: #1D3557;
-}
-
-.file-btn.dark-mode {
-    background-color: #5fa58c;
-    color: #001721; /* Font colour */
-}
-
-.file-btn.dark-mode:hover {
-    background-color: #7acaae;
 }
 
 .gif-container {
@@ -256,8 +246,8 @@ header.dark-mode {
 }
 
 .about-btn.dark-mode {
-    background-color: #5fa58c;
-    color: #001721; /* Font colour */
+    background-color: #167c4b;
+    color: #d5efe2; /* Font colour */
 }
 
 .about-btn.dark-mode:hover {
@@ -269,6 +259,7 @@ header.dark-mode {
     color: #bad1da; /* Font colour */
     border-color: #002d44; /* Box border colour */
 }
+
 body.dark-mode .bg-teal {
     background-color: #004e6f; /* Change this to your preferred color */
 }
@@ -279,4 +270,75 @@ body.dark-mode .bg-primary {
 
 .reminder.dark-mode p {
     color: #bad1da;
+}
+
+.announcement.dark-mode {
+    color: #09b361;
+}
+
+.announcement-box.dark-mode {
+    background-color: #024b28;
+    border-color: #167c4b;
+}
+
+.file-btn.dark-mode {
+    background-color: #167c4b;
+    color: #d5efe2; /* Font colour */
+}
+
+.file-btn.dark-mode:hover {
+    background-color: #7acaae;
+}
+
+.dark-mode-btn {
+    margin-left: 10px; /* Optional: add space between About button and lightbulb */
+}
+
+.dark-mode-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.dark-mode-btn:focus {
+    outline: none;
+}
+
+/* Mobile view */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .right-header-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        margin: 10px 0;
+        gap: 20px; /* Adds space between the buttons */
+    }
+
+    .logo, .title {
+        margin: 5px 0;
+    }
+
+    .about-btn, .dark-mode-btn {
+        width: auto;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .file-browser, .image-display {
+        width: 100%;
+        margin: 15px 0;
+    }
 }

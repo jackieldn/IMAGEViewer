@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Viewer v0.62</title>
+    <title>Media Viewer v0.63</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
@@ -12,21 +12,23 @@
     <div class="bg-shape bg-primary"></div>
     <header>
         <div class="logo"><img src="T&P_2024_Primary_Logo_Black.png" alt="T&P Logo"></div>
-        <div class="title">MEDIA Viewer v0.62</div>
+        <div class="title">MEDIA Viewer v0.63</div>
         <div class="right-header-buttons">
             <a href="about.html" class="about-btn">About</a>
-            <button id="darkModeToggle" class="dark-mode-btn" title="Toggle dark mode">
-                💡
-            </button>
+            <button id="darkModeToggle" class="dark-mode-btn" title="Toggle dark mode">💡</button>
         </div>
     </header>    
+    <section class="announcement-box">
+        <p><strong><span class="announcement">[NEW] 🤯 Try Darkmode! Click on the lightbulb in the top right corner. No more burnt out retina at night.</span></strong></p>
+    </section>
     <section class="reminder">
         <p><strong><span class="reminder-title">Reminder</span></strong></p>
         <p>This is a simple HTML application that reads and displays images and videos locally, without uploading any files to a server. The offline version and source code is available on GitHub.</p>
     </section>
+
     <section class="content">
         <div class="file-browser" id="fileDropZone">
-            <p><b>Select a file to display</b><br>(.gif, .png, .jpg, .jpeg, .mp4)<br/></p>
+            <p><b>Select a file to display</b><br>(.gif, .png, .jpg, .jpeg, .mp4)<br></p>
             <input type="file" id="file1" accept=".gif, .jpeg, .jpg, .png, .mp4" onchange="handleFileSelect(event)">
             <label for="file1" id="fileLabel" class="file-btn">File browser</label>
             <p id="fileName"></p>
