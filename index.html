@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Viewer v0.631</title>
+    <title>Media Viewer v0.632</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
@@ -12,12 +12,17 @@
     <div class="bg-shape bg-primary"></div>
     <header>
         <div class="logo"><img src="T&P_2024_Primary_Logo_Black.png" alt="T&P Logo"></div>
-        <div class="title">MEDIA Viewer v0.631</div>
+        <div class="title">MEDIA Viewer v0.632</div>
         <div class="right-header-buttons">
             <a href="about.html" class="about-btn">About</a>
-            <button id="darkModeToggle" class="dark-mode-btn" title="Toggle dark mode">
-                <span id="darkModeIcon">🌜</span>
-            </button>
+            <div class="toggle-container">
+                <input type="checkbox" id="darkModeToggle" class="toggle-checkbox">
+                <label for="darkModeToggle" class="toggle-label">
+                    <span class="sun-icon">&#9728;</span> <!-- Paste sun SVG code here -->
+                    <span class="moon-icon">&#9790;</span> <!-- Paste moon SVG code here -->
+                </label>
+            </div>
+        </div>        
         </div>
     </header>
     <section class="announcement-box">

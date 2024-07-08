@@ -1,31 +1,33 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const darkModeIcon = document.getElementById('darkModeIcon');
-    const fileDropZone = document.getElementById('fileDropZone');
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('darkModeToggle');
 
-    darkModeToggle.addEventListener('click', handleDarkModeToggle);
-
-    // Apply the saved theme or system preference
+    // Load the saved theme
     const savedDarkMode = localStorage.getItem('darkMode');
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (savedDarkMode === 'enabled' || (!savedDarkMode && prefersDarkScheme)) {
-        document.body.classList.add('dark-mode');
-        darkModeIcon.textContent = '🌞'; // Change to moon icon
-    }
-    setDarkMode(document.body.classList.contains('dark-mode'));
+    const darkModeEnabled = savedDarkMode === 'enabled' || (!savedDarkMode && prefersDarkScheme);
+
+    setDarkMode(darkModeEnabled);
+    toggle.checked = darkModeEnabled;
+
+    // Toggle the theme on checkbox change
+    toggle.addEventListener('change', () => {
+        setDarkMode(toggle.checked);
+    });
 });
 
 function setDarkMode(isDark) {
-    const elementsToToggle = document.querySelectorAll('body, header, .about-btn, .file-browser, .image-display, .about, .reminder, .announcement, .announcement-box, #fileLabel');
+    const elementsToToggle = document.querySelectorAll(
+        'body, header, .about-btn, .file-browser, .image-display, .about, .reminder, .announcement, .announcement-box, #fileLabel, .bg-teal, .bg-primary'
+    );
     elementsToToggle.forEach(element => {
         if (isDark) {
             element.classList.add('dark-mode');
+            element.classList.remove('light-mode');
         } else {
+            element.classList.add('light-mode');
             element.classList.remove('dark-mode');
         }
     });
-
-    // Save dark mode state
     localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
 }
 
