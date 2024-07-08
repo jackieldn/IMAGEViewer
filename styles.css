@@ -342,3 +342,16 @@ body.dark-mode .bg-primary {
         margin: 15px 0;
     }
 }
+
+/* Darkmode toggle */
+.dark-mode-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: inherit;
+}
+
+.dark-mode .dark-mode-btn {
+    color: white;
+}

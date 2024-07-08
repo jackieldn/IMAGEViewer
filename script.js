@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const darkModeToggle = document.getElementById('darkModeToggle');
+    const darkModeIcon = document.getElementById('darkModeIcon');
     const fileDropZone = document.getElementById('fileDropZone');
 
     darkModeToggle.addEventListener('click', handleDarkModeToggle);
@@ -9,6 +10,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (savedDarkMode === 'enabled' || (!savedDarkMode && prefersDarkScheme)) {
         document.body.classList.add('dark-mode');
+        darkModeIcon.textContent = '🌞'; // Change to moon icon
     }
     setDarkMode(document.body.classList.contains('dark-mode'));
 });
@@ -22,22 +24,17 @@ function setDarkMode(isDark) {
             element.classList.remove('dark-mode');
         }
     });
+
+    // Save dark mode state
+    localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
 }
 
 function handleDarkModeToggle() {
-    const isDarkMode = document.body.classList.toggle('dark-mode');
-    setDarkMode(isDarkMode);
-    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
-}
-
-// Your existing functions
-function displayFileName(file) {
-    const fileNameP = document.getElementById('fileName');
-    if (file) {
-        fileNameP.textContent = file.name;
-    } else {
-        fileNameP.textContent = '';
-    }
+    const body = document.body;
+    const darkModeIcon = document.getElementById('darkModeIcon');
+    body.classList.toggle('dark-mode');
+    darkModeIcon.textContent = body.classList.contains('dark-mode') ? '🌞' : '🌜'; // Toggle icons
+    setDarkMode(body.classList.contains('dark-mode'));
 }
 
 function displayImage(file) {
