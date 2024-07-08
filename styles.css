@@ -5,11 +5,6 @@
     font-family: Arial, sans-serif;
 }
 
-body {
-    background-color: #E9ECEF;
-    position: relative;
-}
-
 .bg-shape {
     width: 520px;
     height: 520px;
@@ -45,12 +40,18 @@ header {
 .right-header-buttons {
     display: flex;
     align-items: center;
-    gap: 10px; /* Adjust the gap as needed */
+    gap: 2px;
+    height: 100%;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
 }
 
 .logo img {
-    width: 200px;
-    height: 50px;
+    width: 131px;
+    height: 52px;
 }
 
 .title {
@@ -245,6 +246,14 @@ header.dark-mode {
     background-color: #016074;
 }
 
+.bg-teal.dark-mode {
+    background-color: #004e6f;
+}
+
+.bg-primary.dark-mode {
+    background-color: #004e6f;
+}
+
 .about-btn.dark-mode {
     background-color: #167c4b;
     color: #d5efe2; /* Font colour */
@@ -354,4 +363,140 @@ body.dark-mode .bg-primary {
 
 .dark-mode .dark-mode-btn {
     color: white;
+}
+
+/* Toggle Switch Styles */
+.toggle-container {
+    position: relative;
+    width: 50px;
+    height: 40px;
+    margin: 20px;
+}
+
+.toggle-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-label {
+    position: absolute;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 50px;
+    width: 120%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.toggle-label .sun-icon,
+.toggle-label .moon-icon {
+    transition: transform 0.3s ease;
+    font-size: 18px;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+    background-color: #333;
+}
+
+.toggle-checkbox:checked + .toggle-label .sun-icon {
+    transform: translateX(25px);
+}
+
+.toggle-checkbox:checked + .toggle-label .moon-icon {
+    transform: translateX(-25px);
+}
+
+/* Dark Mode Styles */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.light-mode {
+    background-color: #E9ECEF;
+    color: #000;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #FFF;
+}
+
+/* Dark Mode Specific Styles for Elements */
+header.dark-mode {
+    background-color: #016074;
+}
+
+.about-btn.dark-mode {
+    background-color: #167c4b;
+    color: #d5efe2;
+}
+
+.about-btn.dark-mode:hover {
+    background-color: #7acaae;
+}
+
+.file-browser.dark-mode,
+.image-display.dark-mode,
+.about.dark-mode,
+.reminder.dark-mode {
+    background-color: #00080c;
+    color: #bad1da;
+    border-color: #002d44;
+}
+
+body.dark-mode .bg-teal,
+body.dark-mode .bg-primary {
+    background-color: #004e6f;
+}
+
+.reminder.dark-mode p {
+    color: #bad1da;
+}
+
+.announcement.dark-mode {
+    color: #09b361;
+}
+
+.announcement-box.dark-mode {
+    background-color: #024b28;
+    border-color: #167c4b;
+}
+
+.file-btn.dark-mode {
+    background-color: #167c4b;
+    color: #d5efe2;
+}
+
+.file-btn.dark-mode:hover {
+    background-color: #7acaae;
+}
+
+.dark-mode-btn {
+    margin-left: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.dark-mode-btn:focus {
+    outline: none;
+}
+body, 
+header, 
+.about-btn, 
+.file-browser, 
+.image-display, 
+.about, 
+.reminder, 
+.announcement, 
+.announcement-box, 
+#fileLabel, 
+.bg-teal, 
+.bg-primary {
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
 }
