@@ -1,0 +1,20 @@
+.about {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px;
+    margin-top: 20px;  /* Reduce the top margin */
+    border-radius: 10px;        
+}
+
+.about p {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.about strong {
+    font-weight: bold;
+}
+
+.reduced-line-height {
+    line-height: 1.2; /* Adjust this value as needed */
+}

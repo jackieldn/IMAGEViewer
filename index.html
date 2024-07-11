@@ -3,16 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Viewer v0.632</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Media Viewer v0.64</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/announcement.css">
+    <link rel="stylesheet" href="css/components/reminder.css">
+    <link rel="stylesheet" href="css/components/content.css">
+    <link rel="stylesheet" href="css/components/about.css">
+    <link rel="stylesheet" href="css/components/darkmode-toggle.css">
+    <link rel="stylesheet" href="css/themes/light-mode.css">
+    <link rel="stylesheet" href="css/themes/dark-mode.css">
+    <link rel="stylesheet" href="css/media-queries.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div class="bg-shape bg-teal"></div>
     <div class="bg-shape bg-primary"></div>
     <header>
         <div class="logo"><img src="T&P_2024_Primary_Logo_Black.png" alt="T&P Logo"></div>
-        <div class="title">MEDIA Viewer v0.632</div>
+        <div class="title">MEDIA Viewer v0.64</div>
         <div class="right-header-buttons">
             <a href="about.html" class="about-btn">About</a>
             <div class="toggle-container">
@@ -23,9 +37,8 @@
                 </label>
             </div>
         </div>        
-        </div>
     </header>
-    <section class="announcement-box">
+    <section class="announcement-box hidden">
         <p><strong><span class="announcement">[NEW] 🤯 Try Darkmode! Click on the sun/moon in the top right corner. No more burnt out retina at night.</span></strong></p>
     </section>
     <section class="reminder">

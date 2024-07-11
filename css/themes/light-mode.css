@@ -1,0 +1,13 @@
+body.light-mode {
+    background-color: #E9ECEF;
+    color: #000;
+}
+
+/* Light Mode Specific Styles for Elements */
+body.light-mode .bg-teal {
+    background-color: #CAF0F8; /* Change this to your preferred color */
+}
+
+body.light-mode .bg-primary {
+    background-color: #CAF0F8; /* Change this to your preferred color */
+}

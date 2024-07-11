@@ -1,0 +1,36 @@
+/* Mobile view */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .right-header-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        margin: 10px 0;
+        gap: 20px; /* Adds space between the buttons */
+    }
+
+    .logo, .title {
+        margin: 5px 0;
+    }
+
+    .about-btn, .dark-mode-btn {
+        width: auto;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .file-browser, .image-display {
+        width: 100%;
+        margin: 15px 0;
+    }
+}

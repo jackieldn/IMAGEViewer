@@ -1,0 +1,103 @@
+.content {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+    gap: 15px;
+}
+
+.file-browser {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 25%;
+    text-align: center;
+    border: 2px dashed #aaa;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.file-browser.dragover {
+    background-color: #f0f0f0;
+}
+
+.file-browser p {
+    margin-bottom: 20px;
+}
+
+#file1 {
+    display: none;
+}
+
+.file-btn {
+    background-color: #03045E;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.file-btn:hover {
+    background-color: #1D3557;
+}
+
+.image-display {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 75%;
+    text-align: center;
+}
+
+#fileName {
+    margin-top: 25px;
+}
+
+.gif-container {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #dddddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.gif-container img, .gif-container video {
+    object-fit: contain;
+}
+
+.gif-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.gif-wrapper p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.gif-resolution {
+    font-size: 12px;
+    color: #9a9a9a;
+    text-align: center;
+    margin-top: 5px;
+}
+
+#playPauseBtn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #035e32;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#playPauseBtn:hover {
+    background-color: #048949;
+}

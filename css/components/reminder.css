@@ -1,0 +1,25 @@
+.reminder {
+    background-color: #ffffff;
+    border-style: solid;
+    border-color: #00B4D8;
+    border-width: 1px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.reminder p {
+    margin-bottom: 15px;
+    color: #005262;
+    font-size: 14px;
+    padding: 2px;
+    margin: 1px;
+}
+
+.reminder strong {
+    font-weight: bold;
+}
+
+.reminder-title {
+    font-size: 16px;
+}
