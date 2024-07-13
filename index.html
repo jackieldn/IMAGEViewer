@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Viewer v0.64</title>
+    <title>&tools - Media Viewer</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components/header.css">
     <link rel="stylesheet" href="css/components/announcement.css">
@@ -26,14 +26,14 @@
     <div class="bg-shape bg-primary"></div>
     <header>
         <div class="logo"><img src="T&P_2024_Primary_Logo_Black.png" alt="T&P Logo"></div>
-        <div class="title">MEDIA Viewer v0.64</div>
+        <div class="title">MEDIA Viewer v0.7</div>
         <div class="right-header-buttons">
             <a href="about.html" class="about-btn">About</a>
             <div class="toggle-container">
                 <input type="checkbox" id="darkModeToggle" class="toggle-checkbox">
                 <label for="darkModeToggle" class="toggle-label">
-                    <span class="sun-icon">&#9728;</span> <!-- Paste sun SVG code here -->
-                    <span class="moon-icon">&#9790;</span> <!-- Paste moon SVG code here -->
+                    <span class="sun-icon">&#9728;</span>
+                    <span class="moon-icon">&#9790;</span>
                 </label>
             </div>
         </div>        
@@ -53,6 +53,31 @@
             <label for="file1" id="fileLabel" class="file-btn">File browser</label>
             <p id="fileName"></p>
             <p><b>or drag and drop here</b></p>
+            <div class="divider"></div>
+            <div class="color-picker-container">
+                <p>Choose colour</p>
+                <input type="color" id="colorPicker" class="color-picker">
+                <input type="text" id="colorInput" class="color-input" placeholder="Enter colour value...">
+            </div>
+            <div class="color-presets-container">
+                <p>Color Presets</p>
+                <div class="color-preset" data-color="#FAD0E0">
+                    <div class="color-box" style="background-color: #FAD0E0;"></div>
+                    Blush
+                </div>
+                <div class="color-preset" data-color="#E6D7F9">
+                    <div class="color-box" style="background-color: #E6D7F9;"></div>
+                    Lilac
+                </div>
+                <div class="color-preset" data-color="#CCE2FA">
+                    <div class="color-box" style="background-color: #CCE2FA;"></div>
+                    Mist
+                </div>
+                <div class="color-preset" data-color="#F8D7CC">
+                    <div class="color-box" style="background-color: #F8D7CC;"></div>
+                    Sand
+                </div>
+            </div>
         </div>
         <div class="image-display" id="gifs">
             <!-- Image or video will be displayed here -->

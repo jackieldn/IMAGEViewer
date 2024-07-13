@@ -101,3 +101,74 @@
 #playPauseBtn:hover {
     background-color: #048949;
 }
+
+/*colour picker*/
+
+.divider {
+    height: 1px;
+    background-color: #ccc;
+    margin: 10px 0;
+}
+
+.color-picker-container {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+    text-align: center;
+}
+
+.color-picker-container p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.color-picker,
+.color-input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.color-picker {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.color-input {
+    width: 200px;
+}
+
+.color-presets-container {
+    margin-top: 15px; /* Spacing above the color presets */
+    text-align: center;
+}
+
+.color-presets-container p {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 15px; /* Spacing between the color text box and the "Color Presets" text */
+}
+
+.color-preset {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0; /* Spacing between presets */
+    cursor: pointer;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.image-display {
+    transition: background-color 0.3s ease;
+}

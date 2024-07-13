@@ -13,11 +13,49 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.addEventListener('change', () => {
         setDarkMode(toggle.checked);
     });
+
+    // Handle color picker and input changes
+    const colorPicker = document.getElementById('colorPicker');
+    const colorInput = document.getElementById('colorInput');
+    const imageDisplay = document.getElementById('gifs');
+
+    colorPicker.addEventListener('input', () => {
+        const color = colorPicker.value;
+        imageDisplay.style.backgroundColor = color;
+        colorInput.value = color;
+    });
+
+    colorInput.addEventListener('input', () => {
+        let color = colorInput.value;
+        // Automatically add '#' if it's a valid hex color without '#'
+        if (/^([0-9A-F]{3}|[0-9A-F]{6})$/i.test(color)) {
+            color = '#' + color;
+        }
+        if (isValidColor(color)) {
+            imageDisplay.style.backgroundColor = color;
+            colorPicker.value = color;
+        }
+    });
+
+    document.querySelectorAll('.color-preset').forEach(preset => {
+        preset.addEventListener('click', () => {
+            const color = preset.getAttribute('data-color');
+            imageDisplay.style.backgroundColor = color;
+            colorInput.value = color;
+            colorPicker.value = color;
+        });
+    });
+
+    function isValidColor(str) {
+        const s = new Option().style;
+        s.color = str;
+        return s.color !== '';
+    }
 });
 
 function setDarkMode(isDark) {
     const elementsToToggle = document.querySelectorAll(
-        'body, header, .about-btn, .file-browser, .image-display, .about, .reminder, .announcement, .announcement-box, #fileLabel, .bg-teal, .bg-primary'
+        'body, header, .about-btn, .file-browser, .image-display, .about, .reminder, .announcement, .announcement-box, #fileLabel, .bg-teal, .bg-primary, .color-picker-container, .color-picker, .color-input, .color-presets-container, .color-preset'
     );
     elementsToToggle.forEach(element => {
         if (isDark) {

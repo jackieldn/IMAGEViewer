@@ -20,10 +20,31 @@ header.dark-mode {
 .file-browser.dark-mode,
 .image-display.dark-mode,
 .about.dark-mode,
-.reminder.dark-mode {
+.reminder.dark-mode,
+.color-picker-container.dark-mode,
+.color-picker.dark-mode,
+.color-input.dark-mode,
+.color-presets-container.dark-mode,
+.color-preset.dark-mode {
     background-color: #00080c;
     color: #bad1da;
     border-color: #002d44;
+}
+
+.color-picker-container.dark-mode p {
+    color: #bad1da;
+}
+
+.color-presets-container.dark-mode {
+    margin-top: 15px; /* Spacing above the color presets in dark mode */
+}
+
+.color-presets-container.dark-mode p {
+    margin-bottom: 15px; /* Spacing between the color text box and the "Color Presets" text in dark mode */
+}
+
+.color-preset.dark-mode {
+    margin: 10px 0; /* Spacing between presets in dark mode */
 }
 
 body.dark-mode .bg-teal,
@@ -63,7 +84,6 @@ header,
 .announcement, 
 .announcement-box, 
 #fileLabel, 
-.bg-teal, 
-.bg-primary {
+.bg-teal {
     transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
 }
